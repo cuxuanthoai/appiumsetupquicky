@@ -1,3 +1,4 @@
+#dowload file 
 # Define paths
 $androidHomePath = 'C:\Android\android_sdk\cmdline-tools\latest\bin'
 $platformToolsPath = 'C:\Android\platform-tools'
