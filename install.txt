@@ -1,0 +1,24 @@
+# Define paths
+$androidHomePath = 'C:\Android\android_sdk\cmdline-tools\latest\bin'
+$platformToolsPath = 'C:\Android\platform-tools'
+$emulatorPath = 'C:\Android\android_sdk\emulator'
+
+# Set ANDROID_HOME environment variable, overwriting if it exists
+[System.Environment]::SetEnvironmentVariable('ANDROID_HOME', $androidHomePath, [System.EnvironmentVariableTarget]::User)
+
+# Set the PATH variable, overwriting with the new values
+$fullPath = "$androidHomePath;$platformToolsPath;$emulatorPath"
+[System.Environment]::SetEnvironmentVariable('Path', $fullPath, [System.EnvironmentVariableTarget]::User)
+
+# Output the value of ANDROID_HOME
+Write-Host "ANDROID_HOME is set to: $($env:ANDROID_HOME)"
+
+# Get the current PATH and format it for output
+$currentPath = [System.Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::User)
+$pathComponents = $currentPath -split ';'  # Split the PATH into components
+
+# Output each component of the PATH on a new line
+Write-Host "PATH is set to:"
+foreach ($component in $pathComponents) {
+    Write-Host " - $component"
+}
