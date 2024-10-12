@@ -1,0 +1,19 @@
+# Define paths
+$javaHomePath = 'C:\Program Files\Java\jdk-17'  # Adjust as necessary
+$mavenHomePath = 'C:\apache-maven-3.9.9'        # Adjust as necessary
+
+# Set JAVA_HOME environment variable, overwriting if it exists
+[System.Environment]::SetEnvironmentVariable('JAVA_HOME', $javaHomePath, [System.EnvironmentVariableTarget]::User)
+
+# Set MAVEN_HOME environment variable, overwriting if it exists
+[System.Environment]::SetEnvironmentVariable('MAVEN_HOME', $mavenHomePath, [System.EnvironmentVariableTarget]::User)
+
+# Update the PATH variable to include JAVA_HOME and MAVEN_HOME
+$fullPath = "$javaHomePath\bin;$mavenHomePath\bin"
+[System.Environment]::SetEnvironmentVariable('Path', $fullPath, [System.EnvironmentVariableTarget]::User)
+# Output the value
+Write-Host "JAVA_HOME is set to: $($env:JAVA_HOME)"
+Write-Host "MAVEN_HOME is set to: $($env:MAVEN_HOME)"
+
+
+
